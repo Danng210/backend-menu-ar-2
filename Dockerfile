@@ -12,7 +12,7 @@ RUN apt-get update && \
     libzip-dev \
     unzip \
     libpq-dev && \  # Añadir libpq-dev (PostgreSQL client library)
-    docker-php-ext-install pdo_mysql zip pdo_pgsql && \ # Instalar pdo_pgsql
+    docker-php-ext-install pdo_mysql zip pdo_pgsql && \
     a2enmod rewrite
 
 # Configura Apache para escuchar en todas las interfaces (no en localhost)
