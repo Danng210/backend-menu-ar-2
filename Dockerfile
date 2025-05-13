@@ -46,6 +46,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Instala las dependencias de Composer
 RUN composer install --no-dev --optimize-autoloader
 
+# Configura Apache para escuchar en todas las interfaces (no en localhost)
+RUN echo "ServerName 0.0.0.0" >> /etc/apache2/apache2.conf && \
+    sed -i 's/Listen 80/Listen 0.0.0.0:80/g' /etc/apache2/ports.conf
+
 # Expone el puerto 8000 para FPM
 EXPOSE 8000
 
