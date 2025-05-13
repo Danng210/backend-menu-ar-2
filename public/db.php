@@ -5,10 +5,10 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
 
 // Configuración para Railway
-$host = 'mysql.railway.internal';
-$dbname = 'railway';
-$user = 'root'; 
-$pass = 'jqxPgQNLJUcqmflyWNyubyxhLcREksSF';
+$host = getenv('DB_HOST');
+$dbname = getenv('DB_NAME');
+$user = getenv('DB_USER'); 
+$pass = getenv('DB_PASS');
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
