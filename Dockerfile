@@ -10,8 +10,9 @@ COPY public/ /var/www/html/
 RUN apt-get update && \
     apt-get install -y \
     libzip-dev \
-    unzip && \
-    docker-php-ext-install pdo_mysql zip && \
+    unzip \
+    libpq-dev && \  # Añadir libpq-dev (PostgreSQL client library)
+    docker-php-ext-install pdo_mysql zip pdo_pgsql && \ # Instalar pdo_pgsql
     a2enmod rewrite
 
 # Configura Apache para escuchar en todas las interfaces (no en localhost)
